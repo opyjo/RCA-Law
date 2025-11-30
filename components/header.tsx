@@ -1,6 +1,7 @@
 "use client"
 
 import Link from "next/link"
+import Image from "next/image"
 import { useState } from "react"
 import { Button } from "@/components/ui/button"
 
@@ -19,14 +20,15 @@ export default function Header() {
       <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-16 md:h-20">
           {/* Logo */}
-          <Link href="/" className="flex items-center gap-2">
-            <div className="w-10 h-10 bg-primary rounded-lg flex items-center justify-center text-white font-serif font-bold text-lg">
-              RCA
-            </div>
-            <div className="hidden sm:flex flex-col">
-              <span className="font-serif font-bold text-foreground text-lg leading-none">RCA Law</span>
-              <span className="text-xs text-muted-foreground">Legal Services</span>
-            </div>
+          <Link href="/" className="flex items-center">
+            <Image
+              src="/rca_logo.jpg"
+              alt="RCA Law - Barristers, Solicitors and Notary Public"
+              width={180}
+              height={60}
+              className="h-12 md:h-14 w-auto"
+              priority
+            />
           </Link>
 
           {/* Desktop Navigation */}

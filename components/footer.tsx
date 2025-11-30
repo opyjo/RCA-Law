@@ -1,4 +1,5 @@
 import Link from "next/link"
+import Image from "next/image"
 
 export default function Footer() {
   const currentYear = new Date().getFullYear()
@@ -24,12 +25,15 @@ export default function Footer() {
         <div className="grid grid-cols-1 md:grid-cols-4 gap-8 mb-8">
           {/* Brand Info */}
           <div className="space-y-4">
-            <div className="flex items-center gap-2">
-              <div className="w-10 h-10 bg-accent rounded-lg flex items-center justify-center text-primary font-serif font-bold">
-                RCA
-              </div>
-              <span className="font-serif font-bold text-lg">RCA Law</span>
-            </div>
+            <Link href="/">
+              <Image
+                src="/rca_logo.jpg"
+                alt="RCA Law - Barristers, Solicitors and Notary Public"
+                width={160}
+                height={53}
+                className="h-14 w-auto brightness-0 invert"
+              />
+            </Link>
             <p className="text-sm text-primary-foreground/80">
               Quality legal services with integrity and dedication. Family-owned and committed to your success.
             </p>
