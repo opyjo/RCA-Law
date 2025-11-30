@@ -31,7 +31,7 @@ export default function Footer() {
                 alt="RCA Law - Barristers, Solicitors and Notary Public"
                 width={160}
                 height={53}
-                className="h-14 w-auto brightness-0 invert"
+                className="h-14 w-auto"
               />
             </Link>
             <p className="text-sm text-primary-foreground/80">

@@ -1,8 +1,3 @@
-"use client"
-
-import type React from "react"
-
-import { useState } from "react"
 import { Button } from "@/components/ui/button"
 import { Card, CardContent } from "@/components/ui/card"
 import Header from "@/components/header"
@@ -10,69 +5,6 @@ import Footer from "@/components/footer"
 import { AnimatedSection } from "@/components/animated-section"
 
 export default function Contact() {
-  const [formData, setFormData] = useState({
-    firstName: "",
-    lastName: "",
-    email: "",
-    phone: "",
-    practiceArea: "",
-    message: "",
-  })
-
-  const [isSubmitted, setIsSubmitted] = useState(false)
-  const [isLoading, setIsLoading] = useState(false)
-
-  const practiceAreas = [
-    "Select a practice area",
-    "Immigration Law",
-    "Wills & Estate Law",
-    "Family Law",
-    "Tax Law",
-    "Other",
-  ]
-
-  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {
-    const { name, value } = e.target
-    setFormData((prev) => ({
-      ...prev,
-      [name]: value,
-    }))
-  }
-
-  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
-    e.preventDefault()
-    setIsLoading(true)
-
-    try {
-      // Send email via form endpoint
-      const response = await fetch("/api/send-contact-email", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify(formData),
-      })
-
-      if (response.ok) {
-        setIsSubmitted(true)
-        setFormData({
-          firstName: "",
-          lastName: "",
-          email: "",
-          phone: "",
-          practiceArea: "",
-          message: "",
-        })
-        // Reset success message after 5 seconds
-        setTimeout(() => setIsSubmitted(false), 5000)
-      }
-    } catch (error) {
-      console.error("Error submitting form:", error)
-    } finally {
-      setIsLoading(false)
-    }
-  }
-
   const contactInfo = [
     {
       icon: "📞",
@@ -80,6 +12,7 @@ export default function Contact() {
       content: "905-517-3093",
       href: "tel:905-517-3093",
       subtext: "Available Mon-Fri, 9am-5pm",
+      cta: "Call Now",
     },
     {
       icon: "✉️",
@@ -87,6 +20,7 @@ export default function Contact() {
       content: "rcaattorneys@gmail.com",
       href: "mailto:rcaattorneys@gmail.com",
       subtext: "We'll respond within 24 hours",
+      cta: "Send Email",
     },
     {
       icon: "📍",
@@ -125,7 +59,7 @@ export default function Contact() {
     <main className="min-h-screen bg-background">
       <Header />
 
-      {/* Hero Section - Enhanced */}
+      {/* Hero Section */}
       <section className="relative bg-gradient-to-br from-primary via-primary to-primary/80 text-primary-foreground py-20 md:py-28 overflow-hidden">
         {/* Background decorative elements */}
         <div className="absolute inset-0 hero-pattern hero-grid" />
@@ -157,184 +91,73 @@ export default function Contact() {
         </div>
       </section>
 
-      {/* Contact Info + Form Grid */}
+      {/* Contact Information */}
       <section className="py-16 md:py-24">
-        <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-            {/* Contact Information */}
-            <div className="md:col-span-1 space-y-6">
-              <AnimatedSection animation="slide-in-left">
-                <h2 className="heading-md mb-6">Get in Touch</h2>
-              </AnimatedSection>
+        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+          <AnimatedSection className="text-center mb-12">
+            <h2 className="heading-md mb-4">Get in Touch</h2>
+            <p className="body-lg text-muted-foreground">
+              We're here to help with your legal needs. Contact us today for a free consultation.
+            </p>
+          </AnimatedSection>
 
-              {contactInfo.map((info, index) => (
-                <AnimatedSection key={index} animation="fade-in-up" delay={index * 100}>
-                  <Card className="border-border hover-lift">
-                    <CardContent className="p-6">
-                      <div className="flex items-start gap-4">
-                        <span className="text-2xl">{info.icon}</span>
-                        <div>
-                          <h3 className="font-semibold text-foreground mb-1">{info.title}</h3>
-                          {info.href ? (
-                            <a href={info.href} className="text-accent hover:underline font-semibold">
-                              {info.content}
-                            </a>
-                          ) : (
-                            <p className="font-semibold text-foreground">{info.content}</p>
-                          )}
-                          <p className="text-sm text-muted-foreground mt-1">{info.subtext}</p>
-                        </div>
-                      </div>
-                    </CardContent>
-                  </Card>
-                </AnimatedSection>
-              ))}
-            </div>
-
-            {/* Contact Form */}
-            <AnimatedSection animation="slide-in-right" delay={200} className="md:col-span-2">
-              <Card className="border-border shadow-lg">
-                <CardContent className="p-8">
-                  {isSubmitted ? (
-                    <div className="space-y-4 text-center py-12 animate-scale-in">
-                      <div className="w-20 h-20 bg-accent/20 rounded-full flex items-center justify-center mx-auto mb-6">
-                        <span className="text-4xl text-accent">✓</span>
-                      </div>
-                      <h3 className="heading-sm text-foreground">Thank You!</h3>
-                      <p className="text-muted-foreground max-w-md mx-auto">
-                        Your message has been received. We'll contact you shortly to schedule your free consultation.
-                      </p>
-                    </div>
-                  ) : (
-                    <form onSubmit={handleSubmit} className="space-y-6">
-                      <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                        <div>
-                          <label htmlFor="firstName" className="block text-sm font-semibold text-foreground mb-2">
-                            First Name
-                          </label>
-                          <input
-                            type="text"
-                            id="firstName"
-                            name="firstName"
-                            value={formData.firstName}
-                            onChange={handleChange}
-                            required
-                            className="w-full px-4 py-3 border border-border rounded-lg bg-background text-foreground focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent transition-all"
-                            placeholder="John"
-                          />
-                        </div>
-                        <div>
-                          <label htmlFor="lastName" className="block text-sm font-semibold text-foreground mb-2">
-                            Last Name
-                          </label>
-                          <input
-                            type="text"
-                            id="lastName"
-                            name="lastName"
-                            value={formData.lastName}
-                            onChange={handleChange}
-                            required
-                            className="w-full px-4 py-3 border border-border rounded-lg bg-background text-foreground focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent transition-all"
-                            placeholder="Doe"
-                          />
-                        </div>
-                      </div>
-
-                      <div>
-                        <label htmlFor="email" className="block text-sm font-semibold text-foreground mb-2">
-                          Email
-                        </label>
-                        <input
-                          type="email"
-                          id="email"
-                          name="email"
-                          value={formData.email}
-                          onChange={handleChange}
-                          required
-                          className="w-full px-4 py-3 border border-border rounded-lg bg-background text-foreground focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent transition-all"
-                          placeholder="john@example.com"
-                        />
-                      </div>
-
-                      <div>
-                        <label htmlFor="phone" className="block text-sm font-semibold text-foreground mb-2">
-                          Phone Number
-                        </label>
-                        <input
-                          type="tel"
-                          id="phone"
-                          name="phone"
-                          value={formData.phone}
-                          onChange={handleChange}
-                          required
-                          className="w-full px-4 py-3 border border-border rounded-lg bg-background text-foreground focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent transition-all"
-                          placeholder="(905) 123-4567"
-                        />
-                      </div>
-
-                      <div>
-                        <label htmlFor="practiceArea" className="block text-sm font-semibold text-foreground mb-2">
-                          Practice Area
-                        </label>
-                        <select
-                          id="practiceArea"
-                          name="practiceArea"
-                          value={formData.practiceArea}
-                          onChange={handleChange}
-                          required
-                          className="w-full px-4 py-3 border border-border rounded-lg bg-background text-foreground focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent transition-all cursor-pointer"
-                        >
-                          {practiceAreas.map((area, idx) => (
-                            <option key={idx} value={area}>
-                              {area}
-                            </option>
-                          ))}
-                        </select>
-                      </div>
-
-                      <div>
-                        <label htmlFor="message" className="block text-sm font-semibold text-foreground mb-2">
-                          Message
-                        </label>
-                        <textarea
-                          id="message"
-                          name="message"
-                          value={formData.message}
-                          onChange={handleChange}
-                          required
-                          rows={6}
-                          className="w-full px-4 py-3 border border-border rounded-lg bg-background text-foreground focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent transition-all resize-none"
-                          placeholder="Tell us about your legal matter..."
-                        />
-                      </div>
-
-                      <Button
-                        type="submit"
-                        disabled={isLoading}
-                        className="w-full bg-accent hover:bg-accent/90 text-accent-foreground font-semibold py-3 disabled:opacity-50 cursor-pointer btn-hover-effect"
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+            {contactInfo.map((info, index) => (
+              <AnimatedSection key={index} animation="fade-in-up" delay={index * 100}>
+                <Card className="border-border hover-lift h-full">
+                  <CardContent className="p-8 text-center">
+                    <div className="text-5xl mb-4">{info.icon}</div>
+                    <h3 className="text-xl font-serif font-bold text-foreground mb-2">{info.title}</h3>
+                    {info.href ? (
+                      <a 
+                        href={info.href} 
+                        className="text-xl text-accent hover:underline font-semibold block mb-2"
                       >
-                        {isLoading ? (
-                          <span className="flex items-center justify-center gap-2">
-                            <svg className="animate-spin h-5 w-5" viewBox="0 0 24 24">
-                              <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4" fill="none" />
-                              <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z" />
-                            </svg>
-                            Sending...
-                          </span>
-                        ) : (
-                          "Send Message"
-                        )}
-                      </Button>
-
-                      <p className="text-xs text-muted-foreground text-center">
-                        By submitting this form, you agree to be contacted regarding your inquiry.
-                      </p>
-                    </form>
-                  )}
-                </CardContent>
-              </Card>
-            </AnimatedSection>
+                        {info.content}
+                      </a>
+                    ) : (
+                      <p className="text-xl font-semibold text-foreground mb-2">{info.content}</p>
+                    )}
+                    <p className="text-sm text-muted-foreground mb-4">{info.subtext}</p>
+                    {info.cta && info.href && (
+                      <a href={info.href}>
+                        <Button className="bg-accent hover:bg-accent/90 text-accent-foreground btn-hover-effect cursor-pointer">
+                          {info.cta}
+                        </Button>
+                      </a>
+                    )}
+                  </CardContent>
+                </Card>
+              </AnimatedSection>
+            ))}
           </div>
+        </div>
+      </section>
+
+      {/* CTA Banner */}
+      <section className="relative bg-gradient-to-r from-primary to-primary/90 py-16 overflow-hidden">
+        <div className="absolute inset-0 hero-pattern opacity-50" />
+        <div className="relative max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+          <AnimatedSection>
+            <h2 className="text-2xl md:text-3xl font-serif font-bold text-white mb-4">
+              Ready for Your Free Consultation?
+            </h2>
+            <p className="text-white/80 mb-8 max-w-xl mx-auto">
+              Call us today or send an email to schedule your free initial consultation. We're here to help.
+            </p>
+            <div className="flex flex-col sm:flex-row gap-4 justify-center">
+              <a href="tel:905-517-3093">
+                <Button size="lg" className="bg-accent hover:bg-accent/90 text-accent-foreground btn-hover-effect cursor-pointer w-full sm:w-auto">
+                  📞 Call: 905-517-3093
+                </Button>
+              </a>
+              <a href="mailto:rcaattorneys@gmail.com">
+                <Button size="lg" variant="outline" className="border-white text-white hover:bg-white/10 bg-transparent cursor-pointer w-full sm:w-auto">
+                  ✉️ Email Us
+                </Button>
+              </a>
+            </div>
+          </AnimatedSection>
         </div>
       </section>
 
@@ -352,7 +175,7 @@ export default function Contact() {
                 width="100%"
                 height="100%"
                 style={{ border: 0 }}
-                allowFullScreen=""
+                allowFullScreen
                 loading="lazy"
                 referrerPolicy="no-referrer-when-downgrade"
                 title="RCA Law Location - Hamilton, Ontario"
@@ -362,7 +185,7 @@ export default function Contact() {
         </div>
       </section>
 
-      {/* FAQ Preview */}
+      {/* FAQ Section */}
       <section className="py-16 md:py-24">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
           <AnimatedSection className="text-center mb-12">

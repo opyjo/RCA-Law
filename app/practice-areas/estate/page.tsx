@@ -3,19 +3,42 @@ import { Card, CardContent } from "@/components/ui/card"
 import Header from "@/components/header"
 import Footer from "@/components/footer"
 import Link from "next/link"
+import { AnimatedSection } from "@/components/animated-section"
 
 export default function EstateLaw() {
   return (
     <main className="min-h-screen bg-background">
       <Header />
 
-      {/* Hero Section */}
-      <section className="bg-gradient-to-b from-primary to-primary/90 text-primary-foreground py-16 md:py-24">
-        <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="space-y-4">
-            <h1 className="text-4xl md:text-5xl font-serif font-bold text-white">Wills & Estate Law</h1>
-            <p className="text-xl text-white/90">Protect your legacy and secure your family's future</p>
-          </div>
+      {/* Hero Section - Enhanced */}
+      <section className="relative bg-gradient-to-br from-primary via-primary to-primary/80 text-primary-foreground py-20 md:py-28 overflow-hidden">
+        {/* Background decorative elements */}
+        <div className="absolute inset-0 hero-pattern hero-grid" />
+        
+        {/* Floating shapes */}
+        <div 
+          className="hero-shape bg-accent/20 w-72 h-72 -top-36 -right-36 animate-float"
+          style={{ animationDelay: "0s" }}
+        />
+        <div 
+          className="hero-shape bg-white/10 w-56 h-56 -bottom-28 -left-28 animate-float"
+          style={{ animationDelay: "2s" }}
+        />
+
+        <div className="relative max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+          <h1 className="text-4xl md:text-5xl lg:text-6xl font-serif font-bold text-white mb-6 animate-fade-in-down">
+            Wills & Estate Law
+          </h1>
+          <p className="text-lg md:text-xl text-white/90 max-w-2xl mx-auto animate-fade-in-up delay-200">
+            Protect your legacy and secure your family's future
+          </p>
+        </div>
+
+        {/* Bottom wave */}
+        <div className="absolute bottom-0 left-0 right-0">
+          <svg viewBox="0 0 1440 100" fill="none" xmlns="http://www.w3.org/2000/svg" className="w-full h-auto" preserveAspectRatio="none">
+            <path d="M0 100L48 90C96 80 192 60 288 50C384 40 480 40 576 45C672 50 768 60 864 65C960 70 1056 70 1152 65C1248 60 1344 50 1392 45L1440 40V100H1392C1344 100 1248 100 1152 100C1056 100 960 100 864 100C768 100 672 100 576 100C480 100 384 100 288 100C192 100 96 100 48 100H0Z" className="fill-background"/>
+          </svg>
         </div>
       </section>
 
