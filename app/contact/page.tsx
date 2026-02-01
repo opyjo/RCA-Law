@@ -25,7 +25,7 @@ export default function Contact() {
     {
       icon: "📍",
       title: "Location",
-      content: "Hamilton, Ontario",
+      content: "1 Hunter Street East Ground Floor, Hamilton, ON L8N 3W1",
       subtext: "Serving GTA & Niagara Region",
     },
     {
@@ -63,13 +63,13 @@ export default function Contact() {
       <section className="relative bg-gradient-to-br from-primary via-primary to-primary/80 text-primary-foreground py-20 md:py-28 overflow-hidden">
         {/* Background decorative elements */}
         <div className="absolute inset-0 hero-pattern hero-grid" />
-        
+
         {/* Floating shapes */}
-        <div 
+        <div
           className="hero-shape bg-accent/20 w-72 h-72 -top-36 -right-36 animate-float"
           style={{ animationDelay: "0s" }}
         />
-        <div 
+        <div
           className="hero-shape bg-white/10 w-56 h-56 -bottom-28 -left-28 animate-float"
           style={{ animationDelay: "2s" }}
         />
@@ -86,7 +86,7 @@ export default function Contact() {
         {/* Bottom wave */}
         <div className="absolute bottom-0 left-0 right-0">
           <svg viewBox="0 0 1440 100" fill="none" xmlns="http://www.w3.org/2000/svg" className="w-full h-auto" preserveAspectRatio="none">
-            <path d="M0 100L48 90C96 80 192 60 288 50C384 40 480 40 576 45C672 50 768 60 864 65C960 70 1056 70 1152 65C1248 60 1344 50 1392 45L1440 40V100H1392C1344 100 1248 100 1152 100C1056 100 960 100 864 100C768 100 672 100 576 100C480 100 384 100 288 100C192 100 96 100 48 100H0Z" className="fill-background"/>
+            <path d="M0 100L48 90C96 80 192 60 288 50C384 40 480 40 576 45C672 50 768 60 864 65C960 70 1056 70 1152 65C1248 60 1344 50 1392 45L1440 40V100H1392C1344 100 1248 100 1152 100C1056 100 960 100 864 100C768 100 672 100 576 100C480 100 384 100 288 100C192 100 96 100 48 100H0Z" className="fill-background" />
           </svg>
         </div>
       </section>
@@ -109,8 +109,8 @@ export default function Contact() {
                     <div className="text-5xl mb-4">{info.icon}</div>
                     <h3 className="text-xl font-serif font-bold text-foreground mb-2">{info.title}</h3>
                     {info.href ? (
-                      <a 
-                        href={info.href} 
+                      <a
+                        href={info.href}
                         className="text-xl text-accent hover:underline font-semibold block mb-2"
                       >
                         {info.content}
@@ -171,14 +171,14 @@ export default function Contact() {
           <AnimatedSection animation="scale-in" delay={200}>
             <div className="bg-white rounded-xl overflow-hidden shadow-lg h-96">
               <iframe
-                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d92621.37284051535!2d-79.95397565!3d43.2560802!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x882c9b9d8e5c9a0f%3A0x3b4b3e5b3e5b3e5b!2sHamilton%2C%20ON!5e0!3m2!1sen!2sca!4v1234567890"
+                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2905.8879088641497!2d-79.87219292409983!3d43.25377097112386!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x882c9b9c9765ae71%3A0xab4534f8a550a78b!2s1%20Hunter%20St%20E%20Ground%20Floor%20-%20Suite%20100%2C%20Hamilton%2C%20ON%20L8N%203W1!5e0!3m2!1sen!2sca!4v1769984841262!5m2!1sen!2sca"
                 width="100%"
                 height="100%"
                 style={{ border: 0 }}
                 allowFullScreen
                 loading="lazy"
                 referrerPolicy="no-referrer-when-downgrade"
-                title="RCA Law Location - Hamilton, Ontario"
+                title="RCA Law Location - 1 Hunter Street East Ground Floor, Hamilton, ON L8N 3W1"
               />
             </div>
           </AnimatedSection>

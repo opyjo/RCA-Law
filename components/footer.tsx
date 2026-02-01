@@ -27,7 +27,7 @@ export default function Footer() {
           <div className="space-y-4">
             <Link href="/">
               <Image
-                src="/rca_logo.jpg"
+                src="/logo.jpeg"
                 alt="RCA Law - Barristers, Solicitors and Notary Public"
                 width={160}
                 height={53}
@@ -79,7 +79,7 @@ export default function Footer() {
               <p className="text-primary-foreground/80">
                 <strong>Address:</strong>
                 <br />
-                Hamilton, Ontario
+                1 Hunter Street East Ground Floor, Hamilton, ON L8N 3W1
               </p>
             </div>
           </div>
@@ -89,7 +89,7 @@ export default function Footer() {
         <div className="border-t border-primary-foreground/20 pt-8">
           <div className="flex flex-col md:flex-row justify-between items-center gap-4">
             <p className="text-sm text-primary-foreground/70">© {currentYear} RCA Law. All rights reserved.</p>
-            <p className="text-xs text-primary-foreground/60">Hamilton, Ontario, Canada</p>
+            <p className="text-xs text-primary-foreground/60">1 Hunter Street East Ground Floor, Hamilton, ON L8N 3W1, Canada</p>
           </div>
         </div>
       </div>

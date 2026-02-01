@@ -39,13 +39,13 @@ export default function About() {
       <section className="relative bg-gradient-to-br from-primary via-primary to-primary/80 text-primary-foreground py-20 md:py-28 overflow-hidden">
         {/* Background decorative elements */}
         <div className="absolute inset-0 hero-pattern hero-grid" />
-        
+
         {/* Floating shapes */}
-        <div 
+        <div
           className="hero-shape bg-accent/20 w-80 h-80 -top-40 -right-40 animate-float"
           style={{ animationDelay: "0s" }}
         />
-        <div 
+        <div
           className="hero-shape bg-white/10 w-64 h-64 -bottom-32 -left-32 animate-float"
           style={{ animationDelay: "3s" }}
         />
@@ -62,7 +62,7 @@ export default function About() {
         {/* Bottom wave */}
         <div className="absolute bottom-0 left-0 right-0">
           <svg viewBox="0 0 1440 100" fill="none" xmlns="http://www.w3.org/2000/svg" className="w-full h-auto" preserveAspectRatio="none">
-            <path d="M0 100L48 90C96 80 192 60 288 50C384 40 480 40 576 45C672 50 768 60 864 65C960 70 1056 70 1152 65C1248 60 1344 50 1392 45L1440 40V100H1392C1344 100 1248 100 1152 100C1056 100 960 100 864 100C768 100 672 100 576 100C480 100 384 100 288 100C192 100 96 100 48 100H0Z" className="fill-background"/>
+            <path d="M0 100L48 90C96 80 192 60 288 50C384 40 480 40 576 45C672 50 768 60 864 65C960 70 1056 70 1152 65C1248 60 1344 50 1392 45L1440 40V100H1392C1344 100 1248 100 1152 100C1056 100 960 100 864 100C768 100 672 100 576 100C480 100 384 100 288 100C192 100 96 100 48 100H0Z" className="fill-background" />
           </svg>
         </div>
       </section>
@@ -179,41 +179,12 @@ export default function About() {
         </div>
       </section>
 
-      {/* Community Involvement */}
-      <section className="bg-gradient-to-b from-secondary/5 to-secondary/15 py-16 md:py-24">
-        <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-          <AnimatedSection className="text-center space-y-3 mb-12">
-            <h2 className="heading-md">Community Involvement</h2>
-            <p className="body-lg text-muted-foreground max-w-2xl mx-auto">
-              We believe in giving back to the community that has supported us
-            </p>
-          </AnimatedSection>
-
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-            {[
-              { icon: "🤝", title: "Pro Bono Work", desc: "We provide pro bono services to individuals who cannot afford legal representation." },
-              { icon: "📚", title: "Legal Education", desc: "We conduct workshops and seminars to educate the community about their legal rights." },
-              { icon: "❤️", title: "Charitable Support", desc: "We support local charities and organizations that make a difference in our community." },
-            ].map((item, index) => (
-              <AnimatedSection key={index} animation="fade-in-up" delay={index * 150}>
-                <Card className="border-border hover-lift h-full">
-                  <CardContent className="p-6 space-y-3 text-center">
-                    <div className="text-5xl">{item.icon}</div>
-                    <h3 className="heading-sm">{item.title}</h3>
-                    <p className="text-sm text-muted-foreground">{item.desc}</p>
-                  </CardContent>
-                </Card>
-              </AnimatedSection>
-            ))}
-          </div>
-        </div>
-      </section>
 
       {/* CTA Section */}
       <section className="relative bg-gradient-to-r from-primary to-primary/90 py-20 md:py-28 overflow-hidden">
         {/* Background pattern */}
         <div className="absolute inset-0 hero-pattern opacity-50" />
-        
+
         <div className="relative max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <AnimatedSection>
             <h2 className="text-3xl md:text-4xl font-serif font-bold text-white mb-4">Ready to Work With Us?</h2>

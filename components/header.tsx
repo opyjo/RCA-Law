@@ -22,7 +22,7 @@ export default function Header() {
           {/* Logo */}
           <Link href="/" className="flex items-center">
             <Image
-              src="/rca_logo.jpg"
+              src="/logo.jpeg"
               alt="RCA Law - Barristers, Solicitors and Notary Public"
               width={180}
               height={60}

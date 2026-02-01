@@ -81,7 +81,7 @@ export default function Privacy() {
                 <br />
                 <strong>Phone:</strong> 905-517-3093
                 <br />
-                <strong>Address:</strong> Hamilton, Ontario, Canada
+                <strong>Address:</strong> 1 Hunter Street East Ground Floor, Hamilton, ON L8N 3W1, Canada
               </p>
             </div>
           </div>

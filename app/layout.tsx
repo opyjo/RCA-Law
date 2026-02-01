@@ -21,15 +21,15 @@ export const metadata: Metadata = {
     "Family-owned law firm providing accessible and affordable legal services in Hamilton, Ontario. Serving the GTA and Niagara Region. Specializing in immigration, family, estate, and tax law.",
   generator: "v0.app",
   icons: {
-    icon: "/rca_logo.jpg",
-    shortcut: "/rca_logo.jpg",
-    apple: "/rca_logo.jpg",
+    icon: "/logo.jpeg",
+    shortcut: "/logo.jpeg",
+    apple: "/logo.jpeg",
   },
   openGraph: {
     title: "RCA Law - Quality Legal Services with Integrity",
     description: "Professional legal services for families and individuals",
     type: "website",
-    images: ["/rca_logo.jpg"],
+    images: ["/logo.jpeg"],
   },
 }
 
