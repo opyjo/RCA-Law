@@ -41,17 +41,17 @@ export default function Home() {
       <section className="relative bg-gradient-to-br from-primary via-primary to-primary/80 text-primary-foreground py-24 md:py-36 overflow-hidden">
         {/* Background decorative elements */}
         <div className="absolute inset-0 hero-pattern hero-grid" />
-        
+
         {/* Floating shapes */}
-        <div 
+        <div
           className="hero-shape bg-accent/20 w-96 h-96 -top-48 -right-48 animate-float"
           style={{ animationDelay: "0s" }}
         />
-        <div 
+        <div
           className="hero-shape bg-white/10 w-72 h-72 -bottom-36 -left-36 animate-float"
           style={{ animationDelay: "2s" }}
         />
-        <div 
+        <div
           className="hero-shape bg-accent/10 w-48 h-48 top-1/4 right-1/4 animate-float"
           style={{ animationDelay: "4s" }}
         />
@@ -167,7 +167,7 @@ export default function Home() {
       <section className="relative bg-gradient-to-r from-primary to-primary/90 py-16 overflow-hidden">
         {/* Background pattern */}
         <div className="absolute inset-0 hero-pattern opacity-50" />
-        
+
         <div className="relative max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
           <AnimatedSection>
             <div className="flex flex-col md:flex-row items-center justify-between gap-8">
@@ -177,17 +177,17 @@ export default function Home() {
               </div>
               <div className="flex flex-col sm:flex-row gap-3 w-full md:w-auto">
                 <a href="tel:905-517-3093" className="flex-1 md:flex-none">
-                  <Button 
-                    size="lg" 
+                  <Button
+                    size="lg"
                     className="w-full bg-accent hover:bg-accent/90 text-accent-foreground btn-hover-effect cursor-pointer"
                   >
                     📞 Call: 905-517-3093
                   </Button>
                 </a>
-                <a href="mailto:rcaattorneys@gmail.com" className="flex-1 md:flex-none">
-                  <Button 
-                    variant="outline" 
-                    size="lg" 
+                <a href="mailto:Info@rcalaw.ca" className="flex-1 md:flex-none">
+                  <Button
+                    variant="outline"
+                    size="lg"
                     className="w-full bg-transparent border-white text-white hover:bg-white/10 cursor-pointer"
                   >
                     ✉️ Email Us

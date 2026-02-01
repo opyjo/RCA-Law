@@ -72,8 +72,8 @@ export default function Footer() {
               <p className="text-primary-foreground/80">
                 <strong>Email:</strong>
                 <br />
-                <a href="mailto:rcaattorneys@gmail.com" className="hover:text-accent transition-colors">
-                  rcaattorneys@gmail.com
+                <a href="mailto:Info@rcalaw.ca" className="hover:text-accent transition-colors">
+                  Info@rcalaw.ca
                 </a>
               </p>
               <p className="text-primary-foreground/80">

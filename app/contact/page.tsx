@@ -17,8 +17,8 @@ export default function Contact() {
     {
       icon: "✉️",
       title: "Email",
-      content: "rcaattorneys@gmail.com",
-      href: "mailto:rcaattorneys@gmail.com",
+      content: "Info@rcalaw.ca",
+      href: "mailto:Info@rcalaw.ca",
       subtext: "We'll respond within 24 hours",
       cta: "Send Email",
     },
@@ -151,7 +151,7 @@ export default function Contact() {
                   📞 Call: 905-517-3093
                 </Button>
               </a>
-              <a href="mailto:rcaattorneys@gmail.com">
+              <a href="mailto:Info@rcalaw.ca">
                 <Button size="lg" variant="outline" className="border-white text-white hover:bg-white/10 bg-transparent cursor-pointer w-full sm:w-auto">
                   ✉️ Email Us
                 </Button>

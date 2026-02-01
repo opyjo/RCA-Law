@@ -24,7 +24,7 @@ export async function POST(request: NextRequest) {
 
     // TODO: Integrate with email service (e.g., SendGrid, Resend, Nodemailer)
     // Example: await sendEmail({
-    //   to: 'rcaattorneys@gmail.com',
+    //   to: 'Info@rcalaw.ca',
     //   subject: `New Contact Form Submission from ${firstName} ${lastName}`,
     //   html: `...`
     // })

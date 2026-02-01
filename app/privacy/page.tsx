@@ -77,7 +77,7 @@ export default function Privacy() {
                 If you have questions or comments about this Privacy Policy, please contact us at:
               </p>
               <p className="body-md">
-                <strong>Email:</strong> rcaattorneys@gmail.com
+                <strong>Email:</strong> Info@rcalaw.ca
                 <br />
                 <strong>Phone:</strong> 905-517-3093
                 <br />
