@@ -7,6 +7,7 @@ import { createOpenAI } from "@ai-sdk/openai"
 import { buildSystemPrompt } from "@/lib/legal-knowledge-base"
 
 const openai = createOpenAI({
+  baseURL: "https://api.openai.com/v1",
   apiKey: process.env.OPENAI_API_KEY,
   compatibility: "strict",
 })

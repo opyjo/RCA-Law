@@ -43,10 +43,7 @@ function verifyToken(token: string): string | null {
 
 export function validatePassword(password: string): boolean {
   const adminPassword = process.env.ADMIN_PASSWORD
-  if (!adminPassword) {
-    console.log("[v0] ADMIN_PASSWORD env var is not set")
-    return false
-  }
+  if (!adminPassword) return false
 
   // Trim both values to prevent whitespace issues from env vars
   const trimmedInput = password.trim()
