@@ -12,6 +12,7 @@ export default function Header() {
     { label: "Home", href: "/" },
     { label: "About Us", href: "/about" },
     { label: "Practice Areas", href: "/practice-areas" },
+    { label: "Legal Assistant", href: "/legal-assistant" },
     { label: "Contact", href: "/contact" },
   ]
 

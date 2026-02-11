@@ -2,6 +2,7 @@ import type React from "react"
 import type { Metadata } from "next"
 import { Merriweather, Merriweather_Sans } from "next/font/google"
 import "./globals.css"
+import { FloatingChatButton } from "@/components/legal-chat/floating-chat-button"
 
 const merriweather = Merriweather({
   subsets: ["latin"],
@@ -40,7 +41,10 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={`${merriweather.variable} ${merriweatherSans.variable} font-sans antialiased`}>{children}</body>
+      <body className={`${merriweather.variable} ${merriweatherSans.variable} font-sans antialiased`}>
+        {children}
+        <FloatingChatButton />
+      </body>
     </html>
   )
 }
