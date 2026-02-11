@@ -1,6 +1,7 @@
 "use client"
 
 import { useState } from "react"
+import { useSearchParams } from "next/navigation"
 import Link from "next/link"
 import Image from "next/image"
 import { Button } from "@/components/ui/button"
@@ -8,6 +9,8 @@ import { Input } from "@/components/ui/input"
 import { Label } from "@/components/ui/label"
 
 export default function AdminLoginPage() {
+  const searchParams = useSearchParams()
+  const redirect = searchParams.get("redirect") || "/legal-assistant"
   const [password, setPassword] = useState("")
   const [error, setError] = useState("")
   const [isLoading, setIsLoading] = useState(false)
@@ -26,7 +29,7 @@ export default function AdminLoginPage() {
 
       if (res.ok) {
         // Use full page navigation to ensure the session cookie is sent with the request
-        window.location.href = "/legal-assistant"
+        window.location.href = redirect
         return
       } else {
         const data = await res.json()
