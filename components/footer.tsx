@@ -13,7 +13,6 @@ export default function Footer() {
     ],
     Company: [
       { label: "About Us", href: "/about" },
-      { label: "AI Legal Assistant", href: "/legal-assistant" },
       { label: "Contact Us", href: "/contact" },
       { label: "Privacy Policy", href: "/privacy" },
       { label: "Terms of Service", href: "/terms" },

@@ -2,12 +2,21 @@
 
 import Link from "next/link"
 import { usePathname } from "next/navigation"
+import useSWR from "swr"
+
+const fetcher = (url: string) => fetch(url).then((res) => res.json())
 
 export function FloatingChatButton() {
   const pathname = usePathname()
+  const { data: authData } = useSWR("/api/admin/check", fetcher, {
+    revalidateOnFocus: false,
+    dedupingInterval: 30000,
+  })
 
-  // Don't show on the legal assistant page itself
-  if (pathname === "/legal-assistant") return null
+  const isAdmin = authData?.authenticated === true
+
+  // Don't show on the legal assistant page itself or if not admin
+  if (pathname === "/legal-assistant" || !isAdmin) return null
 
   return (
     <Link
