@@ -43,14 +43,20 @@ function verifyToken(token: string): string | null {
 
 export function validatePassword(password: string): boolean {
   const adminPassword = process.env.ADMIN_PASSWORD
-  if (!adminPassword) return false
+  if (!adminPassword) {
+    console.log("[v0] ADMIN_PASSWORD env var is not set")
+    return false
+  }
 
-  // Timing-safe comparison to prevent timing attacks
-  const inputBuffer = Buffer.from(password)
-  const storedBuffer = Buffer.from(adminPassword)
+  // Trim both values to prevent whitespace issues from env vars
+  const trimmedInput = password.trim()
+  const trimmedStored = adminPassword.trim()
 
-  if (inputBuffer.length !== storedBuffer.length) return false
-  return crypto.timingSafeEqual(inputBuffer, storedBuffer)
+  // Use hash comparison for timing-safe equal-length comparison
+  const inputHash = crypto.createHash("sha256").update(trimmedInput).digest()
+  const storedHash = crypto.createHash("sha256").update(trimmedStored).digest()
+
+  return crypto.timingSafeEqual(inputHash, storedHash)
 }
 
 export async function createSession(): Promise<void> {
