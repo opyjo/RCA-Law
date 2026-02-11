@@ -3,13 +3,15 @@ import {
   streamText,
   UIMessage,
 } from "ai"
-import { createOpenAI } from "@ai-sdk/openai"
+import { createOpenAICompatible } from "@ai-sdk/openai-compatible"
 import { buildSystemPrompt } from "@/lib/legal-knowledge-base"
 
-const openai = createOpenAI({
+const openai = createOpenAICompatible({
+  name: "openai",
   baseURL: "https://api.openai.com/v1",
-  apiKey: process.env.OPENAI_API_KEY,
-  compatibility: "strict",
+  headers: {
+    Authorization: `Bearer ${process.env.OPENAI_API_KEY}`,
+  },
 })
 
 export const maxDuration = 60
