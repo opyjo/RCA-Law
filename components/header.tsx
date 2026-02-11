@@ -4,24 +4,14 @@ import Link from "next/link"
 import Image from "next/image"
 import { useState } from "react"
 import { Button } from "@/components/ui/button"
-import useSWR from "swr"
-
-const fetcher = (url: string) => fetch(url).then((res) => res.json())
 
 export default function Header() {
   const [isMenuOpen, setIsMenuOpen] = useState(false)
-  const { data: authData } = useSWR("/api/admin/check", fetcher, {
-    revalidateOnFocus: false,
-    dedupingInterval: 30000,
-  })
-
-  const isAdmin = authData?.authenticated === true
 
   const navLinks = [
     { label: "Home", href: "/" },
     { label: "About Us", href: "/about" },
     { label: "Practice Areas", href: "/practice-areas" },
-    ...(isAdmin ? [{ label: "Legal Assistant", href: "/legal-assistant" }] : []),
     { label: "Contact", href: "/contact" },
   ]
 
